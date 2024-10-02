@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="test">
+  <meta name="keywords" content="Robotic Manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RT-Sketch</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV4ZJ9PVSV');
+  </script>
+
+  <script>
+
+    function updateInteractive() {
+      var task = document.getElementById("interative-menu").value;
+
+      console.log("interactive", task)
+
+      var video = document.getElementById("interactive-video1");
+      video.src = "assets/h3_vids/goal" + task + ".mp4";
+      video.play();
+
+      var video = document.getElementById("interactive-video2");
+      video.src = "assets/h3_vids/sketch" + task + ".mp4";
+      video.play();
+
+    }
+
+    function updateInteractiveSemantic() {
+      var task = document.getElementById("interative-semantic-menu").value;
+
+      console.log("interactive", task)
+
+      var video = document.getElementById("interactive-video-semantic-1");
+      video.src = "assets/h4_vids/" + task + "/semantic.mp4";
+      video.play();
+
+      var video = document.getElementById("interactive-video-semantic-2");
+      video.src = "assets/h4_vids/" + task + "/spatial.mp4";
+      video.play();
+
+    }
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body onload="updateInteractive();">
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">What's the Move?<br>Hybrid Imitation Learning via Salient Points</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</body>
+</html>
