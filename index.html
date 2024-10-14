@@ -581,10 +581,34 @@ While imitation learning (IL) offers a promising framework for teaching robots v
 
         <div class="columns is-centered has-text-centered">
           <div class="column">
-            <h3 class="title is-4">Results</h3>
-          <img src="media/images/plots.png"/>
+            <h3 class="title is-4">Hybrid Task Results</h3>
           </div>
         </div>
+
+        <div class="chart-container" style="width: 70%; margin: auto;">
+            <div class="columns is-vcentered  is-centered shaded-panel">
+            <h2 class="subtitle has-text-centered">
+              <strong><font color='#242424'>Click on any bar to see the videos!</font></strong>
+            </h2>
+            </div>
+
+          <br />
+          <canvas id="taskBarChart"></canvas>
+          <div id="video-container" style="margin-top: 20px;"></div>
+        </div>
+
+        <hr />
+        <br/>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h3 class="title is-4">Waypoint Task Results</h3>
+          </div>
+        </div>
+
+        <div class="chart-container" style="width: 70%; margin: auto;">
+          <canvas id="taskBarChartWaypoint"></canvas>
+        </div>
+
 
         <div class="columns is-centered">
           <div class="content">
@@ -594,23 +618,14 @@ While imitation learning (IL) offers a promising framework for teaching robots v
         </div>
 
 
-<!-- 
-        <hr />
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h3 class="title is-4">Distribution of Successful Rollouts</h3>
-          </div>
-        </div>
-
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h3 class="title is-4">Generalization Capabilities</h3>
-          </div>
-        </div>
-
--->
-
     <hr />
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-4">SPHINX Generalization Capabilities</h3>
+          </div>
+        </div>
+
+
 
     <!-- Failure Modes-->
 <!-- 
