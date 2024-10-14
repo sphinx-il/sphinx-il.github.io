@@ -1,90 +1,717 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="test">
-  <meta name="keywords" content="Robotic Manipulation">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RT-Sketch</title>
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VQTBKP87MK"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      gtag("config", "G-VQTBKP87MK");
+    </script>
 
-    gtag('config', 'G-FV4ZJ9PVSV');
-  </script>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="SPHINX"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      What's the Move?
+      Hybrid Imitation Learning via Salient Points
+    </title>
 
-  <script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
 
-    function updateInteractive() {
-      var task = document.getElementById("interative-menu").value;
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
 
-      console.log("interactive", task)
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
 
-      var video = document.getElementById("interactive-video1");
-      video.src = "assets/h3_vids/goal" + task + ".mp4";
-      video.play();
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+      google.load("jquery", "1.3.2");
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          inlineMath: [['$', '$']]
+          },
+          "HTML-CSS": {
+          availableFonts: ["TeX", "STIX-Web", "Asana-Math", "Latin-Modern"], // Specify the desired font here
+          preferredFont: "STIX-Web", // Set the preferred font
+          webFont: "STIX-Web" // Set the web font to use
+          },
+      });
+    </script>
+    <script
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">
+                What's the Move?<br />Hybrid Imitation 
+                Learning via Salient Points
+              </h1>
 
-      var video = document.getElementById("interactive-video2");
-      video.src = "assets/h3_vids/sketch" + task + ".mp4";
-      video.play();
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href=""
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper (Coming Soon)</span>
+                    </a>
+                  </span>
 
-    }
-
-    function updateInteractiveSemantic() {
-      var task = document.getElementById("interative-semantic-menu").value;
-
-      console.log("interactive", task)
-
-      var video = document.getElementById("interactive-video-semantic-1");
-      video.src = "assets/h4_vids/" + task + "/semantic.mp4";
-      video.play();
-
-      var video = document.getElementById("interactive-video-semantic-2");
-      video.src = "assets/h4_vids/" + task + "/spatial.mp4";
-      video.play();
-
-    }
-
-
-
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-</head>
-<body onload="updateInteractive();">
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-fullhd">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">What's the Move?<br>Hybrid Imitation Learning via Salient Points</h1>
+                  <!-- Code Link. -->
+                  <span class="link-block">
+                    <a
+                      href=""
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fa-brands fa-github"></i>
+                      </span>
+                      <span>Code (Coming Soon)</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Title Card + Caption -->
+    <section class="hero teaser">
+      <div class="container is-fullhd">
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns is-vcentered  is-centered">
+              <video
+                id="teaser"
+                class="intro-video"
+                autoplay
+                loop
+                muted
+                height="100%"
+              >
+                <source src="media/builds/teaser.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <br />
+            <div class="columns is-vcentered  is-centered shaded-panel">
+            <h2 class="subtitle has-text-centered">
+              <strong><span class="sphinxtitle">Sphinx</span> (<span style="text-decoration: underline;">S</span>alient <span style="text-decoration: underline;">P</span>oints for <span style="text-decoration: underline;">H</span>ybrid <span style="text-decoration: underline;">I</span>mitatio<span style="text-decoration: underline;">N</span> and e<span style="text-decoration: underline;">X</span>ecution)
+              <br>is a hybrid IL agent that learns to switch between two modes of execution:</strong>
+              <br><br>(<span style="display: inline-block; width: 13px; height: 13px; background-color: #d96704;"></span>) a <b>point cloud-based waypoint policy</b> for long-range movement &
+              <br>(<span style="display: inline-block; width: 13px; height: 13px; background-color: #ffd28a;"></span>) a <b>wrist-image based dense policy</b>  for more precise manipulation.
+              <br><br>Learned <font color='red'>salient points</font> guide the selection of input modality / action space, <br>enabling
+              <b>complex manipulation</b> with <b>visuospatial generalization</b>.
+            </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<hr>
+
+    <!-- Carousel -->
+    <section class="hero is-light is-small">
+      <div class="hero-body">
+        <div class="container">
+          <div id="results-carousel" class="carousel results-carousel">
+
+            <!-- Fold -->
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/train.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="overlay-text">
+                 Train Track
+              </div>
+            </div>
+
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/coffee.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="overlay-text">
+                 Coffee Making
+              </div>
+            </div>
+
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/cups_distractors.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="overlay-text" style="top: 15%;">
+                 Cup Stack (Distractors)
+              </div>
+
+            </div>
+
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/cups_speed.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="overlay-text" style="top: 15%;">
+                 Cup Stack (2X Execution Speed)
+              </div>
+
+            </div>
+
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/cups_viewpoint.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="overlay-text" style="top: 15%;">
+                 Cup Stack (Novel Viewpoint)
+              </div>
+            </div>
+
+
+            <div class="item">
+              <video
+                poster=""
+                id="carousel-rollout"
+                autoplay
+                muted
+                loop
+                controls
+                height="100%"
+              >
+                <source
+                  src="media/rollouts/drawer.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="overlay-text" style="top: 80%;">
+                 Drawer (Novel Height)
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <h2 class="subtitle has-text-centered">
+      <br />
+      <span class="sphinxtitle">Sphinx</span> tackles long-horizon, precise tasks while generalizing to <strong>unseen spatial arrangements, visual distractors, <br>novel camera viewpoints, and execution speeds,</strong> even having only been trained on 20-60 demos.
+    </h2>
+
+
+    <hr />
+
+    <!-- Abstract. -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+While imitation learning (IL) offers a promising framework for teaching robots various behaviors, learning complex tasks remains challenging. Existing IL policies struggle to generalize effectively across visual and spatial variations even for simple tasks. In this work, we introduce <span class="sphinxtitle">Sphinx</span>: Salient Point-based Hybrid ImitatioN and eXecution, a flexible IL policy that leverages multimodal observations (point clouds and wrist images), along with a hybrid action space of low-frequency, sparse waypoints and high-frequency, dense end effector movements. Given 3D point cloud observations, <span class="sphinxtitle">Sphinx</span> learns to infer task-relevant points within a point cloud, or salient points, which support spatial generalization by focusing on semantically meaningful features. These salient points serve as anchor points to predict waypoints for long-range movement, such as reaching target poses in free-space. Once near a salient point, <span class="sphinxtitle">Sphinx</span> learns to switch to predicting dense end-effector movements given close-up wrist images for precise phases of a task. By exploiting the strengths of different input modalities and action representations for different manipulation phases, <span class="sphinxtitle">Sphinx</span> tackles complex tasks in a sample-efficient, generalizable manner.
+              <br><br>Our method achieves <strong>86.7%</strong> success across <strong>4 real-world</strong> and <strong>2 simulated</strong> tasks, outperforming the next best state-of-the-art IL baseline by <strong>41.1%</strong> on average across <strong>440 real world trials</strong>. <span class="sphinxtitle">Sphinx</span> additionally generalizes to novel viewpoints, visual distractors, spatial arrangements, and execution speeds with a <strong>1.7x</strong> speedup over the most competitive baseline. 
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+    <div class="column is-two-thirds">
+      <h2 class="title is-3">Video</h2>
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/TB0g52N-3_Y?rel=0&amp;showinfo=0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
     </div>
-  </div>
-</section>
+  </div> -->
+    </section>
+
+    <hr />
+    <!-- System Overview -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Video -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3">SPHINX Method Overview</h2>
+
+            <div class="columns is-vcentered is-centered">
+            <img src="media/images/overview.png" style="width: 70%;"/>
+            </div>
+
+            <br />
+
+            <div class="content has-text-justified">
+              <p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr />
+
+    <!-- Data Collection -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-3">SPHINX Data Collection Interface</h2>
 
 
+            <div class="columns is-vcentered is-centered">
+            <img src="media/images/interface.png" style="width: 70%;"/>
+            </div>
+            <br><br>
+            <h4 class="title is-5">Ex: Teleoperating the Train Track Task</h4>
+            <video
+              id="system-overview-video"
+              class="data-collection-video"
+              autoplay
+              muted
+              loop
+            >
+              <source src="media/interface/interface.mp4" type="video/mp4" />
+            </video>
+            <div class="content has-text-justified">
+              <p>
+              </p>
+            </div>
 
-</body>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- Results -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Video -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Evaluations</h2>
+            <div class="columns is-vcentered is-centered"></div>
+          </div>
+        </div>
+
+        <!-- Description and List -->
+        <div class="columns is-centered shaded-panel" style="width: 90%;">
+          <div class="column">
+            <p>
+              We compare <span class="sphinxtitle">Sphinx</span> on 4 real and 2 simulated tasks
+              against several SOTA IL algorithms:<br><br>
+            </p>
+            <ul style="text-align: left;">
+              <li>
+                <strong>Dense-Only Baselines:</strong> Diffusion Policy (DP) and 3D Diffusion Policy are state-of-the-art IL <em>dense-only</em> policies which only differ in their input modality (images and pointclouds). OpenVLA is another image-based dense-only policy which is pre-trained on the large-scale Open X-Embodiment data and finetuned on our datasets.
+              </li>
+              <li>
+                <strong>Hybrid Baseline</strong>: HYDRA learns to switch amongst waypoint and dense modes, but critically only takes images as input and does not predict salient points or offsets.
+              </li>
+              <li>
+                <strong>Waypoint-Only Baselines</strong>: We compare SPHINX against two variants of its <em>waypoint</em> policy which omit the dense mode entirely. Vanilla Waypoint predict waypoints directly given point cloud input, disregarding salient points entirely, and Vanilla Waypoint Aux. SP. predicts waypoints directly but adds salient prediction as an auxiliary task during training alone.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br>
+
+        <!-- Table -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <table
+              id="methods_comparison"
+              style="width: 100%;  border-collapse: collapse; margin-top: -10px; margin-bottom: -10px;"
+            >
+              <thead>
+                <tr>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Method
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Waypoint<br />
+                    Mode
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Dense<br />
+                    Mode
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Point Cloud <br />
+                    Input
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Image <br />
+                    Input
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Salient<br />
+                    Points
+                  </th>
+                  <th
+                    class="centered-header"
+                    style="border-bottom: 2px solid black;"
+                  >
+                    Offset Action<br />
+                    Parameterization
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                    <a
+                      href="https://diffusion-policy.cs.columbia.edu/"
+                      target="_blank"
+                      >DP</a
+                    >
+                  </td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10007;</td>
+                </tr>
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                    <a
+                      href="https://3d-diffusion-policy.github.io/"
+                      target="_blank"
+                      >3D DP</a
+                    >
+                  </td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10007;</td>
+                  <td>&#10007;</td>
+                </tr>
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                    <a
+                      href="https://openvla.github.io/"
+                      target="_blank"
+                      >Fine-tuned OpenVLA</a
+                    >
+                  </td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10007;</td>
+                </tr>
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                    <a
+                      href="https://sites.google.com/view/hydra-il-2023"
+                      target="_blank"
+                      >Hydra</a
+                    >
+                  </td>
+                  <td>&#10003;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10007;</td>
+                </tr>
+
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                  Vanilla Waypoint
+                  </td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10007;</td>
+                  <td>&#10007;</td>
+                </tr>
+
+                <tr>
+                  <td style="border-right: 2px solid black;">
+                  Vanilla Waypoint + Aux. SP
+                  </td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                  <td>&#10003;</td>
+                  <td>&#10007;</td>
+                </tr>
+
+                <tr style="">
+                  <td
+                    style="border-right: 2px solid black; background-color: #FFA5004D;"
+                  >
+                    <strong>SPHINX</strong>
+                  </td>
+                  <td style="background-color: #FFA5004D;">&#10003;</td>
+                  <td style="background-color: #FFA5004D;">&#10003;</td>
+                  <td style="background-color: #FFA5004D;">&#10003;</td>
+                  <td style="background-color: #FFA5004D;">&#10003;</td>
+                  <td style="background-color: #FFA5004D;">&#10003;</td>
+                  <td style="background-color: #FFA5004D;">&#10003;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h3 class="title is-4">Results</h3>
+          <img src="media/images/plots.png"/>
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="content">
+            <p>
+            </p>
+          </div>
+        </div>
+
+
+<!-- 
+        <hr />
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-4">Distribution of Successful Rollouts</h3>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h3 class="title is-4">Generalization Capabilities</h3>
+          </div>
+        </div>
+
+-->
+
+    <hr />
+
+    <!-- Failure Modes-->
+<!-- 
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+          <h2 class="title is-3">Failure Modes</h2>
+        </div>
+
+        <br />
+
+        <div class="rows is-centered">
+
+          <div class="row">
+            <h3
+              class="title is-5 has-text-justified"
+              style="margin-bottom: 2px;"
+            >
+            Failure Mode 1
+            </h3>
+          </div>
+
+          <div class="row has-text-justified">
+            <p>
+            </p>
+            <br />
+            <div class="columns is-centered is-vcentered">
+              <div class="column is-half">
+                <video class="data-video" autoplay muted loop controls>
+                  <source
+                    src="media/failure_modes/diverging_train.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <p class="has-text-centered" style="margin-top: 2px;">
+                  My caption
+                </p>
+              </div>
+              <div class="column is-half">
+                <video class="data-video" autoplay muted loop controls>
+                  <source
+                    src="media/failure_modes/diverging_test.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <p class="has-text-centered" style="margin-top: 2px;">
+                  My caption 2
+                </p>
+              </div>
+            </div>
+            <p>
+            </p>
+          </div>
+        </div>
+
+        
+        <hr />
+        <div class="rows is-centered">
+          <div class="row">
+            <h3
+              class="title is-5 has-text-justified"
+              style="margin-bottom: 2px;"
+            >
+              Common Failures of Baselines
+            </h3>
+          </div>
+
+          <div class="row has-text-justified">
+            <p>
+            </p>
+          </div>
+
+          <br />
+          <div class="columns is-centered is-vcentered">
+            <div class="column is-half">
+              <video class="data-video" autoplay muted loop controls>
+                <source
+                  src="media/failure_modes/act_fork.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p class="has-text-centered" style="margin-top: 2px;">
+                Caption placeholder
+              </p>
+            </div>
+            <div class="column is-half">
+              <video class="data-video" autoplay muted loop controls>
+                <source
+                  src="media/failure_modes/dp_fold.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p class="has-text-centered" style="margin-top: 2px;">
+                Caption placeholder
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+
+  </body>
 </html>

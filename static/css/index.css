@@ -4,24 +4,114 @@ body {
   line-height: 25px;
 }
 
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+.shaded-panel {
+    background: #f5f5f5;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 70%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-#container {
-    display: flex;
-    align-items: center;
+.overlay-text {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* To make text stand out */
+  pointer-events: none; /* Prevents text from interfering with video controls */
 }
 
-#container p {
-    margin-left: 1em;
+pre {
+    overflow-x: auto;
+    text-align: left;
+    border: 1px solid grey;
+    border-radius: 3px;
+    background: #eeeeee;
+    padding: 5px 5px 5px 10px;
+    line-height: 1.2;
+    white-space: pre-wrap;
 }
 
+pre code {
+    text-align: left;
+    word-wrap: normal;
+    white-space: pre-wrap;
+    font-size: 14px;
+}
+
+ul {
+  list-style-type: disc; /* Ensure bullet points are shown */
+  margin-left: 20px; /* Add some left margin for indentation */
+}
+
+li {
+  margin-bottom: 10px; /* Add some space between list items */
+}
+
+.centered-header {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.paper-thumbnail {
+    margin: 0 auto;
+    width: 60%;
+    max-width: 350px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 2% 10% 4% 0;
+}
+
+.paper-info {
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media (max-width: 999px) {
+    .paper-thumbnail {
+        width: 60%;
+    }
+
+    .paper-info {
+        width: 80%;
+    }
+}
+
+.layered-paper-big {
+    /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+        0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The top layer shadow */
+        5px 5px 0 0px #fff,
+        /* The second layer */
+        5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The second layer shadow */
+        10px 10px 0 0px #fff,
+        /* The third layer */
+        10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The third layer shadow */
+        15px 15px 0 0px #fff,
+        /* The fourth layer */
+        15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The fourth layer shadow */
+        20px 20px 0 0px #fff,
+        /* The fifth layer */
+        20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+        /* The fifth layer shadow */
+        25px 25px 0 0px #fff,
+        /* The fifth layer */
+        25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+    /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+}
 
 .footer .icon-link {
     font-size: 25px;
@@ -33,12 +123,54 @@ hr {
     margin-bottom: 5px;
 }
 
-.dnerf {
+.sphinxtitle {
   font-variant: small-caps;
+  font-weight: bold;
 }
 
-.dperact {
-  font-variant: small-caps;
+.intro-video {
+  width: 60%; /* Adjust the width as needed */
+  height: auto; 
+  display: block;
+  margin: 0 auto;
+}
+
+.method-video {
+  width: 80%; /* Adjust the width as needed */
+  height: auto; 
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+
+.data-collection-video {
+  width: 70%; /* Ensure the video is responsive */
+  height: auto; /* Set the height to whatever you prefer */
+  overflow: hidden; /* Ensures any overflow is hidden */
+  border: 2px solid gray; /* Add a solid black border */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.hand-grasp-video {
+  width: 100%; /* Ensure the video is responsive */
+  height: 450px; /* Set the height to whatever you prefer */
+  object-fit: cover; /* This ensures the video fills the container and crops the top/bottom */
+  overflow: hidden; /* Ensures any overflow is hidden */
+}
+
+.data-video {
+  width: 100%; /* Adjust the width as needed */
+  height: auto; 
+  display: block;
+  margin: 0 auto;
+}
+
+.triangulation-video {
+  width: 70%; /* Adjust the width as needed */
+  height: auto; 
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
 }
 
 .teaser .hero-body {
@@ -51,8 +183,8 @@ hr {
 
 .teaser video {
   object-fit: fill;
-  
 }
+
 #glass{
   margin-left: -10px;
 }
@@ -100,7 +232,7 @@ hr {
 }
 
 .publication-authors a {
-   color: hsl(121, 100%, 36%) !important;
+   color: hsl(36, 100%, 50%) !important;
 }
 
 .conference-authors a {
@@ -148,12 +280,26 @@ hr {
 }
 
 .results-carousel .item {
+  height: 100%;
   margin: 5px;
   overflow: hidden;
-  border: 1px solid #bbb;
   border-radius: 10px;
   padding: 0;
   font-size: 0;
+  position: relative;
+  text-align: center;
+}
+
+.results-carousel .caption {
+  color: #fff; /* Or any other color */
+  background-color: rgba(0, 0, 0, 0.3); /* Optional: for better readability */
+  font-size: 1rem; /* Set caption size */
+  padding: 0.5em; /* Add some padding around the text */
+  width: 100%; /* Caption takes full width of the item */
+  box-sizing: border-box; /* Include padding in width calculation */
+  position: absolute; /* Position it at the bottom of the video */
+  top: 0; /* Align the bottom edge of the caption with the bottom of the item */
+  left: 0; /* Align the left edge of the caption with the left of the item */
 }
 
 .results-carousel video {
@@ -205,92 +351,54 @@ hr {
     white-space: pre-wrap;
 }  
 
-
 .justify {
   text-align: justify;
 }
 
-.custom-button {
-  background-color: lightgreen; /* Change this to your desired color */
-  border-color: darkgreen; /* Change this to match the background color */
-  color: green; /* Change this to the desired text color */
-  animation: bounce 1s infinite;
+.centered-video {
+  display: block;
+  margin: 0 auto;
+  width: 80%; /* Adjust the width as needed */
+  height: auto;
+  border: 5px solid; /* Border color will be set dynamically */
 }
 
-.custom-paper {
-  background-color: lightgreen; /* Change this to your desired color */
-  border-color: darkgreen; /* Change this to match the background color */
-  color: green; /* Change this to the desired text color */
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px); /* Adjust this value to change the jump height */
-  }
-}
-
-.custom-button:hover {
-  animation-play-state: paused; /* Pause the animation on hover */
-}
-
-.rows {
+.video-caption {
   text-align: center;
-  margin: 20px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Adjust the color as needed */
 }
 
-.box-container {
+.video-container {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap; /* Allows the boxes to wrap to the next line if the screen is too small */
+  justify-content: center;
+  align-items: stretch;
 }
-
-.box {
-  background-color: #ececec;
-  border-radius: 15px;
-  padding: 20px;
-  margin: 10px;
-  flex: 1; /* Distribute available space evenly */
-  max-width: 300px; /* Optional: Set a max width for each box */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-  text-align: center; /* Center the text */
+.left-column, .right-column {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
 }
-
-.box p {
-  font-size: 16px; /* Set the font size for <p> elements inside .box */
-  line-height: 1.2;
+.right-column .nested-columns {
+  display: flex;
+  height: 100%;
+  margin: 0 -5px; /* Negative margin to counteract padding in video-wrapper */
 }
-
-.pow-icon {
-  color: #38CE38; /* Customize icon color */
-  margin-right: 5px; /* Optional: Add some space to the left of the icon */
+.video-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px; /* Small padding for minimal separation */
 }
-
-        .gif-row {
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Aligns items vertically in the center */
-            gap: 20px; /* Space between items */
-        }
-        .gif-container {
-            border: 2px solid lightgray; /* Lighter gray border */
-            padding: 0; /* No padding to ensure border is flush with the image */
-            width: 550px; /* Set the width for the images */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 10px; /* Rounded corners */
-            overflow: hidden; /* Ensure rounded corners clip the image */
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
-        }
-        .gif-container img {
-            display: block; /* Remove the space below the image */
-            width: 100%;
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        .underline {
-            display: inline-block; /* Ensures padding is respected */
-            border-bottom: 2px solid black; /* Change the thickness and color as needed */
-            padding-bottom: 2px; /* Adjust the space between text and underline */
-        }
+.data-video {
+  flex: 1;
+  object-fit: cover;
+  width: 100%;
+}
+.video-description {
+  margin-top: 10px;
+  text-align: center;
+}
