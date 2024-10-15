@@ -4,6 +4,19 @@ body {
   line-height: 25px;
 }
 
+.spcircle {
+   display: inline-block;
+   width: 15px;
+   height: 15px;
+   border: 2px solid red;
+   background-color: pink;
+   border-radius: 50%;
+   vertical-align: middle;
+   margin-left: 2px;
+   margin-right: 2px;
+}
+
+
 #message-container {
   text-align: center; /* Center the message */
   margin-bottom: 10px; /* Adds space between the message and the bar chart */
@@ -14,11 +27,11 @@ body {
     background: #f5f5f5;
     border-radius: 10px;
     margin: 0 auto;
-    width: 70%;
+    width: 85%;
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
 .overlay-text {
@@ -150,7 +163,7 @@ li {
 }
 
 .data-collection-video {
-  width: 70%; /* Ensure the video is responsive */
+  width: 100%; /* Ensure the video is responsive */
   height: auto; /* Set the height to whatever you prefer */
   overflow: hidden; /* Ensures any overflow is hidden */
   border: 2px solid gray; /* Add a solid black border */

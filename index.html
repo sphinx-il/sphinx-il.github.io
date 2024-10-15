@@ -5,6 +5,7 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-VQTBKP87MK"
     ></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -25,6 +26,8 @@
       What's the Move?
       Hybrid Imitation Learning via Salient Points
     </title>
+
+
 
     <link
       href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -47,6 +50,8 @@
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
 
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="http://www.google.com/jsapi" type="text/javascript"></script>
     <script type="text/javascript">
@@ -134,7 +139,7 @@
               </video>
             </div>
             <br />
-            <div class="columns is-vcentered  is-centered shaded-panel">
+            <div class="columns is-vcentered  is-centered shaded-panel" style="width: 70%;">
             <h2 class="subtitle has-text-centered">
               <strong><span class="sphinxtitle">Sphinx</span> (<span style="text-decoration: underline;">S</span>alient <span style="text-decoration: underline;">P</span>oints for <span style="text-decoration: underline;">H</span>ybrid <span style="text-decoration: underline;">I</span>mitatio<span style="text-decoration: underline;">N</span> and e<span style="text-decoration: underline;">X</span>ecution)
               <br>is a hybrid IL agent that learns to switch between two modes of execution:</strong>
@@ -150,144 +155,90 @@
     </section>
 <hr>
 
-    <!-- Carousel -->
-    <section class="hero is-light is-small">
-      <div class="hero-body">
-        <div class="container">
-          <div id="results-carousel" class="carousel results-carousel">
-
-            <!-- Fold -->
-            <div class="item">
-              <video
-                poster=""
-                id="carousel-rollout"
-                autoplay
-                muted
-                loop
-                controls
-                height="100%"
-              >
-                <source
-                  src="media/rollouts/train.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div class="overlay-text">
-                 Train Track
-              </div>
-            </div>
-
-            <div class="item">
-              <video
-                poster=""
-                id="carousel-rollout"
-                autoplay
-                muted
-                loop
-                controls
-                height="100%"
-              >
-                <source
-                  src="media/rollouts/coffee.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div class="overlay-text">
-                 Coffee Making
-              </div>
-            </div>
-
-            <div class="item">
-              <video
-                poster=""
-                id="carousel-rollout"
-                autoplay
-                muted
-                loop
-                controls
-                height="100%"
-              >
-                <source
-                  src="media/rollouts/cups_distractors.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div class="overlay-text" style="top: 15%;">
-                 Cup Stack (Distractors)
-              </div>
-
-            </div>
-
-            <div class="item">
-              <video
-                poster=""
-                id="carousel-rollout"
-                autoplay
-                muted
-                loop
-                controls
-                height="100%"
-              >
-                <source
-                  src="media/rollouts/cups_speed.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div class="overlay-text" style="top: 15%;">
-                 Cup Stack (2X Execution Speed)
-              </div>
-
-            </div>
-
-            <div class="item">
-              <video
-                poster=""
-                id="carousel-rollout"
-                autoplay
-                muted
-                loop
-                controls
-                height="100%"
-              >
-                <source
-                  src="media/rollouts/cups_viewpoint.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div class="overlay-text" style="top: 15%;">
-                 Cup Stack (Novel Viewpoint)
-              </div>
-            </div>
-
-
-            <div class="item">
-              <video
-                poster=""
-                id="carousel-rollout"
-                autoplay
-                muted
-                loop
-                controls
-                height="100%"
-              >
-                <source
-                  src="media/rollouts/drawer.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <div class="overlay-text" style="top: 80%;">
-                 Drawer (Novel Height)
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
     <h2 class="subtitle has-text-centered">
       <br />
       <span class="sphinxtitle">Sphinx</span> tackles long-horizon, precise tasks while generalizing to <strong>unseen spatial arrangements, visual distractors, <br>novel camera viewpoints, and execution speeds,</strong> even having only been trained on 20-60 demos.
     </h2>
+
+      <div class="columns shaded-panel">
+        <div class="column has-text-centered">
+          <video id="cups"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="media/rollouts/train.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Train Track</h3>
+        </div>
+        <div class="column has-text-centered">
+          <video id="cups"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="media/rollouts/coffee.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Coffee Making</h3>
+        </div>
+        <div class="column has-text-centered">
+          <video id="cups2"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="media/rollouts/cups_distractors.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Cup Stack (Visual Distractors)</h3>
+        </div>
+        </div>
+
+      <div class="columns shaded-panel">
+        <div class="column has-text-centered">
+          <video id="cups"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="media/rollouts/cups_viewpoint.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Cup Stack (Novel Viewpoint)</h3>
+        </div>
+        <div class="column has-text-centered">
+          <video id="cups"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="media/rollouts/cups_speed.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Cup Stack (Novel Speed)</h3>
+        </div>
+        <div class="column has-text-centered">
+          <video id="cups2"
+            controls
+            muted
+            autoplay
+            loop
+            width="100%">
+            <source src="media/rollouts/drawer.mp4" 
+            type="video/mp4">
+          </video>
+          <h3 class="title is-5">Drawer (Novel Height)</h3>
+        </div>
+        </div>
+    </div>
+
 
 
     <hr />
@@ -330,16 +281,33 @@ While imitation learning (IL) offers a promising framework for teaching robots v
           <div class="column">
             <h2 class="title is-3">SPHINX Method Overview</h2>
 
+
+            <div class="shaded-panel" style="background: white;">
             <div class="columns is-vcentered is-centered">
-            <img src="media/images/overview.png" style="width: 70%;"/>
+            <img src="media/images/overview.png" style="width: 100%;"/>
+            </div>
+            <div class="columns is-centered has-text-justified">
+            <p>
+            <br/>
+            <span class="sphinxtitle">Sphinx</span> learns to switch between two modes (\(m_t\)) of execution: in <font color='#d45800'>waypoint mode</font>, the waypoint policy predicts a waypoint (\(w_t\)) as an offset (\(\phi_t\)) to a salient point \(z_t\) (e.g., mug handle, coffee pod) using a point cloud. Once the waypoint is reached, <span class="sphinxtitle">Sphinx</span> switches to a wrist-camera image-based Diffusion Policy which predicts <font color='orange'>dense</font> actions (\(a_t\)) for precise manipulation around a salient point. On the right, <span class="sphinxtitle">Sphinx</span> interleaves both modes of execution to complete a long-horizon coffee-making task guided by salient points (<span class="spcircle"></span>) and mode switches (<span style="display: inline-block; width: 13px; height: 13px; background-color: #d1d1d1; border: 2px solid black"></span>)<br>.
+            <p>
             </div>
 
+            <h4 class="title is-5"><font color='#e37600'>Waypoint Policy Architecture</font></h4>
+            <div class="columns is-vcentered is-centered">
+            <img src="media/images/waypoint_model.png" style="width: 100%;"/>
+            </div>
+
+            <div class="columns is-centered has-text-justified">
+            <p>
+            <br/>
+            <span class="sphinxtitle">Sphinx</span>'s waypoint policy is a GPT-2 style Transformer backbone which takes downsampled point clouds as inputs and predicts: per-point salient probabilities, per-point waypoint offsets, and the end-effector rotation, gripper, and next mode as separate tokens. At test-time, we take the predicted point with highest saliency probability as the salient point, and use the offset corresponding to this point to recover a full waypoint action. Thus, during training, we only penalize offset prediction on high-probability salient points.
+            <p>
             <br />
-
-            <div class="content has-text-justified">
-              <p>
-              </p>
             </div>
+            </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -353,12 +321,8 @@ While imitation learning (IL) offers a promising framework for teaching robots v
           <div class="column">
             <h2 class="title is-3">SPHINX Data Collection Interface</h2>
 
-
-            <div class="columns is-vcentered is-centered">
-            <img src="media/images/interface.png" style="width: 70%;"/>
-            </div>
-            <br><br>
-            <h4 class="title is-5">Ex: Teleoperating the Train Track Task</h4>
+            <div class="shaded-panel" style="background: white;">
+            <h4 class="title is-5"><font color='#e37600'>Ex: Teleoperating the Train Track Task</font></h4>
             <video
               id="system-overview-video"
               class="data-collection-video"
@@ -373,6 +337,20 @@ While imitation learning (IL) offers a promising framework for teaching robots v
               </p>
             </div>
 
+            <div class="columns is-centered has-text-justified">
+            <p>
+            We design a data collection interface which allows a demonstrator to specify salient points and waypoints with simple click-and-drag interactions in a web UI, reachable with a controller, and dense actions using a SpaceMouse:
+            <br/>
+            <br/>
+            <p>
+            </div>
+
+            <div class="columns is-vcentered is-centered">
+            <img src="media/images/interface.png" style="width: 100%;"/>
+            </div>
+
+
+            </div>
             </div>
           </div>
         </div>
@@ -401,10 +379,10 @@ While imitation learning (IL) offers a promising framework for teaching robots v
             </p>
             <ul style="text-align: left;">
               <li>
-                <strong>Dense-Only Baselines:</strong> Diffusion Policy (DP) and 3D Diffusion Policy are state-of-the-art IL <em>dense-only</em> policies which only differ in their input modality (images and pointclouds). OpenVLA is another image-based dense-only policy which is pre-trained on the large-scale Open X-Embodiment data and finetuned on our datasets.
+                <strong>Dense-Only Baselines:</strong> Diffusion Policy (DP) and 3D Diffusion Policy are state-of-the-art IL policies which only differ in their input modality (third person + wrist images vs. pointclouds, respectively). OpenVLA is a third-person image-based dense-only policy which is pre-trained on the large-scale Open X-Embodiment data and finetuned on our datasets.
               </li>
               <li>
-                <strong>Hybrid Baseline</strong>: HYDRA learns to switch amongst waypoint and dense modes, but critically only takes images as input and does not predict salient points or offsets.
+                <strong>Hybrid Baseline</strong>: HYDRA learns to switch amongst waypoint and dense modes, but critically only takes images (third-person + wrist) as input and does not predict salient points/offsets.
               </li>
               <li>
                 <strong>Waypoint-Only Baselines</strong>: We compare SPHINX against two variants of its <em>waypoint</em> policy which omit the dense mode entirely. Vanilla Waypoint predict waypoints directly given point cloud input, disregarding salient points entirely, and Vanilla Waypoint Aux. SP. predicts waypoints directly but adds salient prediction as an auxiliary task during training alone.
@@ -592,12 +570,12 @@ While imitation learning (IL) offers a promising framework for teaching robots v
             </h2>
             </div>
 
+
           <br />
           <canvas id="taskBarChart"></canvas>
           <div id="video-container" style="margin-top: 20px;"></div>
         </div>
 
-        <hr />
         <br/>
         <div class="columns is-centered has-text-centered">
           <div class="column">
@@ -618,6 +596,13 @@ While imitation learning (IL) offers a promising framework for teaching robots v
         </div>
 
 
+            <br/>
+            <div class="columns is-centered has-text-justified shaded-panel">
+            <p>
+            <span class="sphinxtitle">Sphinx</span> outperforms baselines across 4 real-world and 3 simulated tasks by 41.1% on average. By effectively leveraging mode switches, <span class="sphinxtitle">Sphinx</span> can effectively execute long-range movements with high precision, while also better navigating difficult bottleneck states such as coffee pod insertion or placing the train on the bridge. Dense-only baselines struggle with long-horizon execution and spatial reasoning, while waypoint-only baselines cannot perform complex manipulation. <br><br>Other policies that omit salient point-offset prediction (Vanilla Waypoint) or do not exploit both point clouds and wrist images (HYDRA) exhibit more imprecision and are thus more error-prone.
+            <br/>
+            <p>
+            </div>
     <hr />
         <div class="columns is-centered has-text-centered">
 
@@ -630,12 +615,13 @@ While imitation learning (IL) offers a promising framework for teaching robots v
         <div class="columns is-centered has-text-centered">
 
           <div class="column is-four-fifths">
-            <h4 class="title is-5">Spatial Generalization</h4>
+            <h4 class="title is-5"><font color='#e37600'>Spatial Generalization</font></h4>
           </div>
 
         </div>
 
 
+      <div class="shaded-panel">
       <div class="columns">
         <div class="column has-text-centered">
           <video id="cups"
@@ -661,6 +647,8 @@ While imitation learning (IL) offers a promising framework for teaching robots v
           </video>
           <h3 class="title is-5">Cup Stack</h3>
         </div>
+      </div>
+      <div class="columns">
         <div class="column has-text-centered">
           <video id="cups2"
             controls
@@ -686,14 +674,23 @@ While imitation learning (IL) offers a promising framework for teaching robots v
           <h3 class="title is-5">Train Track</h3>
         </div>
         </div>
+            <div class="columns is-centered has-text-justified">
+            <p>
+            <br/>
+            We visualize the distribution of initial states across successful <span class="sphinxtitle">Sphinx</span> rollouts, spanning a wide range of object positions and orientations across the table.
+            <br/>
+            <p>
+            </div>
+        </div>
 
         <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h4 class="title is-5">Visual Generalization</h4>
+          <div class="column">
+            <br><h4 class="title is-5"><font color='#e37600'>Visual Generalization</font></h4>
           </div>
         </div>
 
 
+      <div class="shaded-panel">
       <div class="columns">
         <div class="column has-text-centered">
           <video id="cups"
@@ -720,142 +717,71 @@ While imitation learning (IL) offers a promising framework for teaching robots v
           <h3 class="title is-5">Novel Viewpoint</h3>
         </div>
       </div>
+            <div class="columns is-centered has-text-justified">
+            <p>
+            <br/>
+            Using (calibrated) point clouds enables <span class="sphinxtitle">Sphinx</span>'s waypoint policy to be robust to new camera viewpoints. The wrist-based dense policy is unaffected by this change, as well as visual distractors in the surrounding scene.
+            <br/>
+            <p>
+            </div>
+      </div>
 
         <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
-            <h4 class="title is-5">Execution Speeds</h4>
+          <div class="column">
+            <br><h4 class="title is-5"><font color='#e37600'>Execution Speeds</font></h4>
           </div>
+
+
         </div>
 
+      <div class="shaded-panel">
       <div class="columns">
         <div class="column has-text-centered">
-          <video id="cups"
+          <p>⏳⌛ <strong>Time Elapsed:</strong> <span id="timeCounter">0:00</span><br><br></p>
+          <video id="speedcomparison"
             controls
             muted
             autoplay
             loop
-            width="100%">
-            <source src="media/generalization/speed/dp.mp4" 
+            width="80%">
+            <source src="media/generalization/speed/speed.mp4" 
             type="video/mp4">
           </video>
-          <h3 class="title is-5">Diffusion Policy</h3>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('speedcomparison');
+            const timeCounter = document.getElementById('timeCounter');
+
+            // Function to format the time as minutes and seconds
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60);
+                return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+            }
+
+            // Update the counter each time the video's time changes
+            video.addEventListener('timeupdate', () => {
+                const currentTime = video.currentTime;
+                timeCounter.textContent = formatTime(currentTime);
+            });
+        });
+    </script>
+
+          
         </div>
-        <div class="column has-text-centered">
-          <video id="cups"
-            controls
-            muted
-            autoplay
-            loop
-            width="100%">
-            <source src="media/generalization/speed/sphinx.mp4" 
-            type="video/mp4">
-          </video>
-          <h3 class="title is-5">SPHINX</h3>
+
         </div>
+            <div class="columns is-centered has-text-justified">
+            <p>
+            <br/>
+            Since <span class="sphinxtitle">Sphinx</span> uses a controller to execute waypoint actions, we can arbitrarily change the max positional delta of the controller at test time to enable faster execution speeds than the rate data was collected at. By doubling the max delta of the controller at test-time, <span class="sphinxtitle">Sphinx</span> can achieve a <strong>1.7x</strong> speedup over Diffusion Policy, while achieving far higher success.
+            <br/>
+            <p>
+            </div>
       </div>
 
 
-
-    <!-- Failure Modes-->
-<!-- 
-    <section class="section">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <h2 class="title is-3">Failure Modes</h2>
-        </div>
-
-        <br />
-
-        <div class="rows is-centered">
-
-          <div class="row">
-            <h3
-              class="title is-5 has-text-justified"
-              style="margin-bottom: 2px;"
-            >
-            Failure Mode 1
-            </h3>
-          </div>
-
-          <div class="row has-text-justified">
-            <p>
-            </p>
-            <br />
-            <div class="columns is-centered is-vcentered">
-              <div class="column is-half">
-                <video class="data-video" autoplay muted loop controls>
-                  <source
-                    src="media/failure_modes/diverging_train.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <p class="has-text-centered" style="margin-top: 2px;">
-                  My caption
-                </p>
-              </div>
-              <div class="column is-half">
-                <video class="data-video" autoplay muted loop controls>
-                  <source
-                    src="media/failure_modes/diverging_test.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <p class="has-text-centered" style="margin-top: 2px;">
-                  My caption 2
-                </p>
-              </div>
-            </div>
-            <p>
-            </p>
-          </div>
-        </div>
-
-        
-        <hr />
-        <div class="rows is-centered">
-          <div class="row">
-            <h3
-              class="title is-5 has-text-justified"
-              style="margin-bottom: 2px;"
-            >
-              Common Failures of Baselines
-            </h3>
-          </div>
-
-          <div class="row has-text-justified">
-            <p>
-            </p>
-          </div>
-
-          <br />
-          <div class="columns is-centered is-vcentered">
-            <div class="column is-half">
-              <video class="data-video" autoplay muted loop controls>
-                <source
-                  src="media/failure_modes/act_fork.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <p class="has-text-centered" style="margin-top: 2px;">
-                Caption placeholder
-              </p>
-            </div>
-            <div class="column is-half">
-              <video class="data-video" autoplay muted loop controls>
-                <source
-                  src="media/failure_modes/dp_fold.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              <p class="has-text-centered" style="margin-top: 2px;">
-                Caption placeholder
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
--->
 
   </body>
 </html>
